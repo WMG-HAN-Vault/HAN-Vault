@@ -14,7 +14,7 @@ public class ReviewWindowEditor : Editor
 
     private static void DrawReviewIcon(int instanceID, Rect selectionRect)
     {
-        GameObject go = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
+        GameObject go = EditorUtility.EntityIdToObject(instanceID) as GameObject;
         if (go == null) return;
 
         if (go.GetComponent<FirstPersonController>() != null)

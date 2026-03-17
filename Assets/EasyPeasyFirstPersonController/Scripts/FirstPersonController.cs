@@ -134,6 +134,11 @@ namespace EasyPeasyFirstPersonController
             playerCamera.localRotation = Quaternion.Euler(xRotation, 0, currentTilt);
         }
 
+        public bool IsCrouching()
+        {
+            return CurrentState is PlayerCrouchingState || CurrentState is PlayerSlidingState;
+        }
+
         public void UpdateVisuals()
         {
             if (!useFovKick)
