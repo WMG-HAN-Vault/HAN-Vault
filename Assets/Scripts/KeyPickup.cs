@@ -8,6 +8,11 @@ public class KeyPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onPickup.Invoke(gameObject);
+
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void LogPickupMessage(GameObject obj)
