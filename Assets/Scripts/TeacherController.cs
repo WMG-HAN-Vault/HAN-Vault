@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class TeacherController : MonoBehaviour
 {
@@ -167,7 +168,7 @@ public class TeacherController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player caught!");
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

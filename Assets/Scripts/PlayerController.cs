@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     {
         FirstPersonController firstPersonController = GetComponent<FirstPersonController>();
 
-        Debug.Log(firstPersonController.IsCrouching());
-
         return !firstPersonController.IsCrouching();
     }
 }
