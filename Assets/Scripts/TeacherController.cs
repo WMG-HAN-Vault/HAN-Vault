@@ -22,9 +22,16 @@ public class TeacherController : MonoBehaviour
 
     private enum State { Patrol, Chase }
     private State currentState = State.Patrol;
+    
+    private Animator animator;
+    private int isWalkingHash;
 
     void Start()
     {
+        animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
+        isWalkingHash = Animator.StringToHash("isWalking");
+        animator.SetBool(isWalkingHash, true);
+        
         agent = GetComponent<NavMeshAgent>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -62,6 +69,8 @@ public class TeacherController : MonoBehaviour
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f))
         {
+            animator.SetBool(isWalkingHash, false);
+            
             currentGoalIndex += direction;
 
             if (currentGoalIndex >= destinations.Length)
@@ -76,6 +85,10 @@ public class TeacherController : MonoBehaviour
             }
 
             agent.SetDestination(destinations[currentGoalIndex].position);
+        }
+        else
+        {
+            animator.SetBool(isWalkingHash, true);
         }
     }
 
