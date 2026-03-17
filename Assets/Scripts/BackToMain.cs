@@ -6,6 +6,6 @@ public class BackToMain : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void NextScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(0);
     }
 }
